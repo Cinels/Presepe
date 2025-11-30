@@ -1,7 +1,9 @@
 #include "model/Dashboard.hpp"
 #include "constants.hpp"
 
-Dashboard::Dashboard(TaskHandle_t* taskHandler) : photores(PHOTO_RESISTOR_PIN) {
+Dashboard::Dashboard(const TaskHandle_t* taskHandler)
+    :   photores(PHOTO_RESISTOR_PIN),
+        display(LCD_I2C_ADDRESS, LCD_COLUMNS, LCD_ROWS) {
     dayTaskHandler = taskHandler;
     this->modeButton = Button(MODE_BUTTON_PIN, []() -> void {
         BaseType_t xHigherPriorityTaskWoken = pdFALSE;
@@ -13,6 +15,7 @@ Dashboard::Dashboard(TaskHandle_t* taskHandler) : photores(PHOTO_RESISTOR_PIN) {
         xTaskNotifyFromISR(dayTaskHandler, PERIOD_BUTTON_NOTIFY, eSetValueWithOverwrite, &xHigherPriorityTaskWoken);
         portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
     });
+    this->display.init();
 }
 
 bool Dashboard::isDark() {

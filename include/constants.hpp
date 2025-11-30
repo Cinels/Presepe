@@ -25,6 +25,11 @@
 #define MODE_BUTTON_NOTIFY 0x00
 #define PERIOD_BUTTON_NOTIFY 0x01
 
+//display
+#define LCD_I2C_ADDRESS 0x27
+#define LCD_COLUMNS 20
+#define LCD_ROWS 4
+
 //tasks
 #define DAY_TASK_PERIOD 100
 

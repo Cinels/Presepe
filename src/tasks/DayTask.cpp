@@ -1,7 +1,7 @@
 #include "tasks/DayTask.hpp"
 #include "constants.hpp"
 
-DayTask::DayTask(Visual visual, Dashboard dashboard) : Task::Task("dayTask", DAY_TASK_PERIOD) {
+DayTask::DayTask(Visual* visual, Dashboard* dashboard, const char* name, const int period) : Task(name, period) {
     this->visual = visual;
     this->dashboard = dashboard;
 }
@@ -52,7 +52,7 @@ void DayTask::fastLoopMode() {
 }
 
 void DayTask::automaticMode() {
-    if (this->dashboard.isDark()) this->startDayPeriod(NIGHT);
+    if (this->dashboard->isDark()) this->startDayPeriod(NIGHT);
     else if (this->dayPeriod == MORNING && ++ts > MORNING_TIME) this->startDayPeriod(DAY);
     else this->startDayPeriod(MORNING); //TODO fix
 }
@@ -65,12 +65,12 @@ void DayTask::startDayPeriod(DayPeriod period) {
     ts = 0;
     this->dayPeriod = period;
     switch (period) {
-    case MORNING: this->visual.startMorning(); break;
-    case DAY: this->visual.startDay(); break;
-    case EVENING: this->visual.startEvening(); break;
-    case NIGHT: this->visual.startNight(); break;
-    case LATE_NIGHT: this->visual.startLateNight(); break;
-    default: this->visual.startMorning();
+    case MORNING: this->visual->startMorning(); break;
+    case DAY: this->visual->startDay(); break;
+    case EVENING: this->visual->startEvening(); break;
+    case NIGHT: this->visual->startNight(); break;
+    case LATE_NIGHT: this->visual->startLateNight(); break;
+    default: this->visual->startMorning();
     }
 }
 

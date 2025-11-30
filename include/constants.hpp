@@ -17,5 +17,15 @@
 #define EVENING_TIME 30
 #define NIGHT_TIME 90
 #define LATE_NIGHT_TIME 90
+#define SKIP_TIME_PERIOD 300
+
+//buttons
+#define MODE_BUTTON_PIN 7
+#define PERIOD_BUTTON_PIN 8
+#define MODE_BUTTON_NOTIFY 0x00
+#define PERIOD_BUTTON_NOTIFY 0x01
+
+//tasks
+#define DAY_TASK_PERIOD 100
 
 #endif

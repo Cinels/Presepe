@@ -1,7 +1,13 @@
 #include "tasks/DayTask.hpp"
 #include "constants.hpp"
 
+DayTask::DayTask(Visual visual, Dashboard dashboard) : Task::Task("dayTask", DAY_TASK_PERIOD) {
+    this->visual = visual;
+    this->dashboard = dashboard;
+}
+
 void DayTask::tick() {
+    this->checkSkip();
     switch (this->mode) {
     case LOOP: loopMode(); break;
     case FAST_LOOP: fastLoopMode(); break;
@@ -11,7 +17,7 @@ void DayTask::tick() {
     }
 }
 
-/*void DayTask::changeMode() {
+void DayTask::changeMode() {
     switch (this->mode) {
     case LOOP: this->mode = FAST_LOOP; break;
     case FAST_LOOP: this->mode = AUTOMATIC; break;
@@ -21,7 +27,7 @@ void DayTask::tick() {
     }
 }
 
-Mode DayTask::getMode() {
+/*Mode DayTask::getMode() {
     return this->mode;
 }
 
@@ -48,7 +54,7 @@ void DayTask::fastLoopMode() {
 void DayTask::automaticMode() {
     if (this->dashboard.isDark()) this->startDayPeriod(NIGHT);
     else if (this->dayPeriod == MORNING && ++ts > MORNING_TIME) this->startDayPeriod(DAY);
-    else this->startDayPeriod(MORNING);
+    else this->startDayPeriod(MORNING); //TODO fix
 }
 
 void DayTask::manualMode() {
@@ -66,4 +72,9 @@ void DayTask::startDayPeriod(DayPeriod period) {
     case LATE_NIGHT: this->visual.startLateNight(); break;
     default: this->visual.startMorning();
     }
+}
+
+void DayTask::checkSkip() {
+    if (false) this->changeMode(); //if button (physical or web) pressed change mode
+    if (false) ts = SKIP_TIME_PERIOD; //if button (physical or web) pressed skip time period
 }

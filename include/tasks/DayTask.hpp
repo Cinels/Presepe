@@ -12,17 +12,19 @@ class DayTask : Task {
 private:
     Mode mode = LOOP;
     DayPeriod dayPeriod = MORNING;
-    Visual visual = Visual();
-    Dashboard dashboard = Dashboard();
+    Visual visual;
+    Dashboard dashboard;
     long ts;
+    void changeMode();
     void loopMode();
     void fastLoopMode();
     void automaticMode();
     void manualMode();
     void startDayPeriod(DayPeriod period);
+    void checkSkip();
 public:
+    DayTask(Visual visual, Dashboard dashboard);
     void tick();
-    // void changeMode();
     // Mode getMode();
     // DayPeriod getDayPeriod();
 };

@@ -8,17 +8,18 @@ class Task {
 private:
     int period;
     TaskHandle_t *taskHandler;
+    void loop();
+    static void entry(void *pvParameters);
+    /// @brief The task to execute each period.
+    virtual void tick() = 0;
 public:
     /// @brief Initialize the task setting the base period.
     /// @param period the base period every which the task must be performed.
-    void setPeriod(int period);
+    Task(const char* name, int period);
 
     /// @brief Returns the period of the task.
     /// @return the period of the task.
     int getPeriod();
-    
-    /// @brief The task to execute each period.
-    virtual void tick() = 0;
 };
 
 #endif

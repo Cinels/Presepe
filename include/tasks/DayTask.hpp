@@ -20,7 +20,7 @@ private:
     void fastLoopMode();
     void automaticMode();
     void manualMode();
-    void startDayPeriod(DayPeriod period);
+    void startDayPeriod(const DayPeriod period);
     void checkSkip();
 public:
     DayTask(Visual* visual, Dashboard* dashboard, const char* name, const int period);

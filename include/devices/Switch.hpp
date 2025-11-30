@@ -6,7 +6,7 @@ private:
     int pin;
     bool on;
 public:
-    Switch(int pin);
+    Switch(const int pin);
     virtual void switchOn();
     virtual void switchOff();
     virtual bool isOn();

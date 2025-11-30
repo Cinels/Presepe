@@ -5,7 +5,7 @@ class Photoresistor {
 private:
     int pin;
 public:
-    Photoresistor(int pin);
+    Photoresistor(const int pin);
     int getValue();
 };
 

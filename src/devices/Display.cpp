@@ -9,7 +9,7 @@ void Display::init() {
     this->clear();
 }
 
-void Display::setText(int row, int col, String text) {
+void Display::setText(const int row, const int col, const String text) {
     this->lcd->backlight();
     this->lcd->setCursor(row, col);
     this->lcd->print(text);

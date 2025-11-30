@@ -1,7 +1,7 @@
 #include "model/Dashboard.hpp"
 #include "constants.hpp"
 
-Dashboard::Dashboard(const TaskHandle_t* taskHandler)
+Dashboard::Dashboard(TaskHandle_t* taskHandler)
     :   photores(PHOTO_RESISTOR_PIN),
         display(LCD_I2C_ADDRESS, LCD_COLUMNS, LCD_ROWS) {
     dayTaskHandler = taskHandler;

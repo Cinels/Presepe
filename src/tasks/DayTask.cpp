@@ -61,7 +61,7 @@ void DayTask::manualMode() {
     //listens from dashboard and internet
 }
 
-void DayTask::startDayPeriod(DayPeriod period) {
+void DayTask::startDayPeriod(const DayPeriod period) {
     ts = 0;
     this->dayPeriod = period;
     switch (period) {

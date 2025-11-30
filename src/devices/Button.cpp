@@ -4,7 +4,7 @@
 
 enum ENUM {A, B};
 
-Button::Button(int pin, void(*func)()) {
+Button::Button(const int pin, void(*func)()) {
     this->pin = pin;
     pinMode(this->pin, INPUT);
     attachInterrupt(digitalPinToInterrupt(this->pin), func, RISING);

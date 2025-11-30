@@ -18,7 +18,7 @@ private:
     //one screen
     //maybe 4 switches
 public:
-    Dashboard(const TaskHandle_t* dayTaskHandler);
+    Dashboard(TaskHandle_t* dayTaskHandler);
     bool isDark();
 };
 

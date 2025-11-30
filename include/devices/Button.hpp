@@ -9,7 +9,7 @@ public:
     /// @brief Button constructor, it creates a button and sets the pin in INPUT mode.
     /// @param pin the input pin for the button.
     Button();
-    Button(int pin, void(*func)());
+    Button(const int pin, void(*func)());
     static void foo();
 };
 

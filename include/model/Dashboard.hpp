@@ -7,18 +7,18 @@
 #include "devices/Button.hpp"
 #include "devices/Display.hpp"
 
+static TaskHandle_t* dayTaskHandler = NULL;
+
 class Dashboard {
 private:
-    static TaskHandle_t* dayTaskHandler;
-
     Photoresistor photores;
     Button modeButton;
     Button periodButton;
     Display display;
-    //one screen
     //maybe 4 switches
 public:
-    Dashboard(TaskHandle_t* dayTaskHandler);
+    Dashboard();
+    void init(TaskHandle_t* dayTaskHandler);
     bool isDark();
 };
 

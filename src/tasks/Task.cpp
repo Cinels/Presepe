@@ -9,6 +9,10 @@ int Task::getPeriod() {
     return this->period;
 }
 
+TaskHandle_t* Task::getTaskHandle() {
+    return this->taskHandler;
+}
+
 void Task::entry(void *pvParameters) {
     Task* instance = static_cast<Task*>(pvParameters);
     instance->loop();

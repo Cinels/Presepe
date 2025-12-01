@@ -8,7 +8,7 @@
 typedef enum Mode {LOOP, FAST_LOOP, AUTOMATIC, MANUAL} Mode;
 typedef enum DayPeriod {MORNING, DAY, EVENING, NIGHT, LATE_NIGHT, OFF} DayPeriod;
 
-class DayTask : Task {
+class DayTask : public Task {
 private:
     Mode mode = LOOP;
     DayPeriod dayPeriod = MORNING;
@@ -26,8 +26,6 @@ private:
 public:
     DayTask(Visual* visual, Dashboard* dashboard, const char* name, const int period);
     void tick();
-    // Mode getMode();
-    // DayPeriod getDayPeriod();
 };
 
 #endif

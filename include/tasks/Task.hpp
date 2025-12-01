@@ -20,6 +20,10 @@ public:
     /// @brief Returns the period of the task.
     /// @return the period of the task.
     int getPeriod();
+
+    /// @brief Returns the task handle pointer.
+    /// @return the pointer to the task handle.
+    TaskHandle_t* getTaskHandle();
 };
 
 #endif

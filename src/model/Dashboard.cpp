@@ -1,9 +1,11 @@
 #include "model/Dashboard.hpp"
 #include "constants.hpp"
 
-Dashboard::Dashboard(TaskHandle_t* taskHandler)
+Dashboard::Dashboard()
     :   photores(PHOTO_RESISTOR_PIN),
-        display(LCD_I2C_ADDRESS, LCD_COLUMNS, LCD_ROWS) {
+        display(LCD_I2C_ADDRESS, LCD_COLUMNS, LCD_ROWS) { }
+
+void Dashboard::init(TaskHandle_t* taskHandler) {
     dayTaskHandler = taskHandler;
     this->modeButton = Button(MODE_BUTTON_PIN, []() -> void {
         BaseType_t xHigherPriorityTaskWoken = pdFALSE;

@@ -2,7 +2,7 @@
 #include "devices/Button.hpp"
 #include <Arduino.h>
 
-enum ENUM {A, B};
+Button::Button() { }
 
 Button::Button(const int pin, void(*func)()) {
     this->pin = pin;

@@ -1,8 +1,10 @@
 #include "tasks/Task.hpp"
+#include <Arduino.h>
 
 Task::Task(const char* name, int period) {
     this->period = period;
     xTaskCreate(entry, name, 2048, this, 1, this->taskHandler);
+    Serial.printf("Task %s created with period: %i\n", name, period);
 }
 
 int Task::getPeriod() {

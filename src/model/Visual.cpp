@@ -1,5 +1,6 @@
 #include "model/Visual.hpp"
 #include "constants.hpp"
+#include <Arduino.h>
 
 Visual::Visual()
     : crafts(CRAFTS_RELAY_PIN),
@@ -52,19 +53,23 @@ void Visual::turnOff() {
 void Visual::toggleCrafts() {
     if (crafts.isOn()) crafts.switchOff();
     else crafts.switchOn();
+    Serial.printf("Crafts: %d", crafts.isOn());
 }
 
 void Visual::toggleHouseAndLanterns() {
     if (housesAndLanterns.isOn()) housesAndLanterns.switchOff();
     else housesAndLanterns.switchOn();
+    Serial.printf("House: %d", housesAndLanterns.isOn());
 }
 
 void Visual::toggleCandlesAndLamps() {
     if (candlesAndLamps.isOn()) candlesAndLamps.switchOff();
     else candlesAndLamps.switchOn();
+    Serial.printf("Candles: %d", candlesAndLamps.isOn());
 }
 
 void Visual::togglePathAndStars() {
     if (pathAndStars.isOn()) pathAndStars.switchOff();
     else pathAndStars.switchOn();
+    Serial.printf("Stars: %d", pathAndStars.isOn());
 }

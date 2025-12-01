@@ -16,6 +16,7 @@ int color = 0;
 int direction = 1;*/
 
 void setup() {
+  Serial.begin(115200);
   dashboard = Dashboard();
   visual = Visual();
   dayTask = new DayTask(&visual, &dashboard, "day task", DAY_TASK_PERIOD);

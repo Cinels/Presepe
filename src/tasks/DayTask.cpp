@@ -1,9 +1,12 @@
 #include "tasks/DayTask.hpp"
 #include "constants.hpp"
+#include <Arduino.h>
 
 DayTask::DayTask(Visual* visual, Dashboard* dashboard, const char* name, const int period) : Task(name, period) {
     this->visual = visual;
     this->dashboard = dashboard;
+    Serial.printf("Mode: %i", this->mode);
+    Serial.printf("Period: %i", this->dayPeriod);
 }
 
 void DayTask::tick() {
@@ -25,6 +28,7 @@ void DayTask::changeMode() {
     case MANUAL: this->mode = LOOP; break;
     default: this->mode = LOOP; break;
     }
+    Serial.printf("Mode: %i", this->mode);
 }
 
 void DayTask::loopMode() {
@@ -79,6 +83,7 @@ void DayTask::startDayPeriod(const DayPeriod period) {
     case OFF: this->visual->turnOff(); break;
     default: this->visual->startMorning();
     }
+    Serial.printf("Period: %i", this->dayPeriod);
 }
 
 void DayTask::checkSkip() {
@@ -88,6 +93,8 @@ void DayTask::checkSkip() {
 }
 
 uint32_t DayTask::readNotification(uint32_t clearOnExit, int timeout) {
-    uint32_t ulReceivedValue;
-    return xTaskNotifyWait(0, clearOnExit, &ulReceivedValue, timeout) == pdPASS ? ulReceivedValue : 0;
+    uint32_t ulReceivedValue = 0;
+    BaseType_t xResult = xTaskNotifyWait(0, clearOnExit, &ulReceivedValue, timeout);
+    Serial.printf("Notifications: %#X", ulReceivedValue);
+    return ulReceivedValue;
 }

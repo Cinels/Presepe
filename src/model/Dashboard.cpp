@@ -1,5 +1,6 @@
 #include "model/Dashboard.hpp"
 #include "constants.hpp"
+#include <Arduino.h>
 
 Dashboard::Dashboard()
     :   photores(PHOTO_RESISTOR_PIN),
@@ -21,5 +22,6 @@ void Dashboard::init(TaskHandle_t* taskHandler) {
 }
 
 bool Dashboard::isDark() {
+    Serial.printf("Enviromental brightness: %d, is night: %d", photores.getValue(), photores.getValue() < BRIGHTNESS_THRESHOLD);
     return photores.getValue() < BRIGHTNESS_THRESHOLD;
 }

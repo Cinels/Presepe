@@ -16,6 +16,7 @@ public:
     void startEvening();
     void startNight();
     void startLateNight();
+    void turnOff();
     void toggleCrafts();
     void toggleHouseAndLanterns();
     void toggleCandlesAndLamps();

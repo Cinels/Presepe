@@ -7,12 +7,12 @@ Dashboard::Dashboard(TaskHandle_t* taskHandler)
     dayTaskHandler = taskHandler;
     this->modeButton = Button(MODE_BUTTON_PIN, []() -> void {
         BaseType_t xHigherPriorityTaskWoken = pdFALSE;
-        xTaskNotifyFromISR(dayTaskHandler, MODE_BUTTON_NOTIFY, eSetValueWithOverwrite, &xHigherPriorityTaskWoken);
+        xTaskNotifyFromISR(dayTaskHandler, MODE_BUTTON_NOTIFY, eSetBits, &xHigherPriorityTaskWoken);
         portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
     });
     this->periodButton = Button(PERIOD_BUTTON_PIN, []() -> void {
         BaseType_t xHigherPriorityTaskWoken = pdFALSE;
-        xTaskNotifyFromISR(dayTaskHandler, PERIOD_BUTTON_NOTIFY, eSetValueWithOverwrite, &xHigherPriorityTaskWoken);
+        xTaskNotifyFromISR(dayTaskHandler, PERIOD_BUTTON_NOTIFY, eSetBits, &xHigherPriorityTaskWoken);
         portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
     });
     this->display.init();

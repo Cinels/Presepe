@@ -42,6 +42,13 @@ void Visual::startLateNight() {
     this->pathAndStars.switchOn();
 }
 
+void Visual::turnOff() {
+    this->crafts.switchOff();
+    this->housesAndLanterns.switchOff();
+    this->candlesAndLamps.switchOff();
+    this->pathAndStars.switchOff();
+}
+
 void Visual::toggleCrafts() {
     if (crafts.isOn()) crafts.switchOff();
     else crafts.switchOn();

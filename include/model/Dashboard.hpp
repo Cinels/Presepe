@@ -7,7 +7,7 @@
 #include "devices/Button.hpp"
 #include "devices/Display.hpp"
 
-static TaskHandle_t* dayTaskHandler = NULL;
+static TaskHandle_t dayTaskHandler = NULL;
 
 class Dashboard {
 private:
@@ -18,7 +18,7 @@ private:
     //maybe 4 switches
 public:
     Dashboard();
-    void init(TaskHandle_t* dayTaskHandler);
+    void init(TaskHandle_t dayTaskHandler);
     bool isDark();
 };
 

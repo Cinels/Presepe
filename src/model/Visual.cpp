@@ -53,23 +53,23 @@ void Visual::turnOff() {
 void Visual::toggleCrafts() {
     if (crafts.isOn()) crafts.switchOff();
     else crafts.switchOn();
-    Serial.printf("Crafts: %d", crafts.isOn());
+    Serial.printf("Crafts: %d\n", crafts.isOn());
 }
 
 void Visual::toggleHouseAndLanterns() {
     if (housesAndLanterns.isOn()) housesAndLanterns.switchOff();
     else housesAndLanterns.switchOn();
-    Serial.printf("House: %d", housesAndLanterns.isOn());
+    Serial.printf("House: %d\n", housesAndLanterns.isOn());
 }
 
 void Visual::toggleCandlesAndLamps() {
     if (candlesAndLamps.isOn()) candlesAndLamps.switchOff();
     else candlesAndLamps.switchOn();
-    Serial.printf("Candles: %d", candlesAndLamps.isOn());
+    Serial.printf("Candles: %d\n", candlesAndLamps.isOn());
 }
 
 void Visual::togglePathAndStars() {
     if (pathAndStars.isOn()) pathAndStars.switchOff();
     else pathAndStars.switchOn();
-    Serial.printf("Stars: %d", pathAndStars.isOn());
+    Serial.printf("Stars: %d\n", pathAndStars.isOn());
 }

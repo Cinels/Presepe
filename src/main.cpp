@@ -19,8 +19,9 @@ void setup() {
   Serial.begin(115200);
   dashboard = Dashboard();
   visual = Visual();
-  dayTask = new DayTask(&visual, &dashboard, "day task", DAY_TASK_PERIOD);
-
+  dayTask = new DayTask(&visual, &dashboard);
+  
+  dayTask->start("day task", DAY_TASK_PERIOD);
   dashboard.init(dayTask->getTaskHandle());
 
   /*pinMode(PHOTORES_PIN, INPUT);

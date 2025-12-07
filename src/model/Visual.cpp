@@ -10,44 +10,44 @@ Visual::Visual()
 
 void Visual::startMorning() {
     this->crafts.switchOff();
-    this->housesAndLanterns.fadeOn();
-    this->candlesAndLamps.fadeOn();
-    this->pathAndStars.fadeOff();
+    this->housesAndLanterns.switchOn();
+    this->candlesAndLamps.switchOn();
+    this->pathAndStars.switchOff();
 }
 
 void Visual::startDay() {
     this->crafts.switchOn();
-    this->housesAndLanterns.fadeOff();
-    this->candlesAndLamps.fadeOff();
-    this->pathAndStars.fadeOff();
+    this->housesAndLanterns.switchOff();
+    this->candlesAndLamps.switchOff();
+    this->pathAndStars.switchOff();
 }
 
 void Visual::startEvening() {
     this->crafts.switchOff();
-    this->housesAndLanterns.fadeOn();
-    this->candlesAndLamps.fadeOn();
-    this->pathAndStars.fadeOff();
+    this->housesAndLanterns.switchOn();
+    this->candlesAndLamps.switchOn();
+    this->pathAndStars.switchOff();
 }
 
 void Visual::startNight() {
     this->crafts.switchOff();
-    this->housesAndLanterns.fadeOn();
-    this->candlesAndLamps.fadeOn();
-    this->pathAndStars.fadeOn();
+    this->housesAndLanterns.switchOn();
+    this->candlesAndLamps.switchOn();
+    this->pathAndStars.switchOn();
 }
 
 void Visual::startLateNight() {
     this->crafts.switchOff();
-    this->housesAndLanterns.fadeOff();
-    this->candlesAndLamps.fadeOff();
-    this->pathAndStars.fadeOn();
+    this->housesAndLanterns.switchOff();
+    this->candlesAndLamps.switchOff();
+    this->pathAndStars.switchOn();
 }
 
 void Visual::turnOff() {
     this->crafts.switchOff();
-    this->housesAndLanterns.fadeOff();
-    this->candlesAndLamps.fadeOff();
-    this->pathAndStars.fadeOff();
+    this->housesAndLanterns.switchOff();
+    this->candlesAndLamps.switchOff();
+    this->pathAndStars.switchOff();
 }
 
 void Visual::toggleCrafts() {
@@ -57,19 +57,19 @@ void Visual::toggleCrafts() {
 }
 
 void Visual::toggleHouseAndLanterns() {
-    if (housesAndLanterns.isOn()) housesAndLanterns.fadeOff();
-    else housesAndLanterns.fadeOn();
+    if (housesAndLanterns.isOn()) housesAndLanterns.switchOff();
+    else housesAndLanterns.switchOn();
     Serial.printf("House: %d\n", housesAndLanterns.isOn());
 }
 
 void Visual::toggleCandlesAndLamps() {
-    if (candlesAndLamps.isOn()) candlesAndLamps.fadeOff();
-    else candlesAndLamps.fadeOn();
+    if (candlesAndLamps.isOn()) candlesAndLamps.switchOff();
+    else candlesAndLamps.switchOn();
     Serial.printf("Candles: %d\n", candlesAndLamps.isOn());
 }
 
 void Visual::togglePathAndStars() {
-    if (pathAndStars.isOn()) pathAndStars.fadeOff();
-    else pathAndStars.fadeOn();
+    if (pathAndStars.isOn()) pathAndStars.switchOff();
+    else pathAndStars.switchOn();
     Serial.printf("Stars: %d\n", pathAndStars.isOn());
 }

@@ -26,13 +26,7 @@ void Task::loop() {
     TickType_t xLastWakeTime = xTaskGetTickCount();     
     for (;;) {
         this->tick(); 
-        // vTaskDelayUntil( &xLastWakeTime, this->period / portTICK_PERIOD_MS );
-        // Serial.print(this->period);
-        // Serial.print(" / ");
-        // Serial.print(portTICK_PERIOD_MS); 
-        // Serial.print(" = ");
-        // Serial.println(this->period / portTICK_PERIOD_MS);
-        vTaskDelay(this->period);
+        vTaskDelayUntil( &xLastWakeTime, this->period / portTICK_PERIOD_MS );
     }
     vTaskDelete(NULL);
 }

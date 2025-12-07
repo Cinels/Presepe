@@ -7,9 +7,8 @@
 
 class Transistor : public Switch {
 private:
-    FadingTask task;
+    FadingTask* task;
 public:
-    // using Switch::Switch;
     Transistor(const uint8_t pin);
     void fadeOn();
     void fadeOff();

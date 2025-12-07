@@ -22,7 +22,7 @@ void setup() {
   dayTask = new DayTask(&visual, &dashboard);
   
   dayTask->start("day task", DAY_TASK_PERIOD);
-  dashboard.init(dayTask->getTaskHandle());
+  // dashboard.init(dayTask->getTaskHandle());
 
   /*pinMode(PHOTORES_PIN, INPUT);
   neopixelWrite(RGB_BUILTIN, 0, 0, 0);

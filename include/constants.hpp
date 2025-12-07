@@ -31,6 +31,7 @@
 
 //tasks
 #define DAY_TASK_PERIOD 100
+#define FADING_PERIOD 10
 
 //notifications
 #define MODE_BUTTON_NOTIFY (1 << 0)

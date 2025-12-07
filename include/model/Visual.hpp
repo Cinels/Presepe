@@ -2,13 +2,14 @@
 #define __VISUAL__
 
 #include "devices/Relay.hpp"
+#include "devices/Transistor.hpp"
 
 class Visual {
 private:
     Relay crafts;
-    Relay housesAndLanterns;
-    Relay candlesAndLamps;
-    Relay pathAndStars;
+    Transistor housesAndLanterns;
+    Transistor candlesAndLamps;
+    Transistor pathAndStars;
 public:
     Visual();
     void startMorning();

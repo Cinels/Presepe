@@ -1,6 +1,8 @@
 #ifndef __BUTTON__
 #define __BUTTON__
 
+#include <cstdint>
+
 /// @brief Class to use buttons by interrupts.
 class Button {
 private:

@@ -1,6 +1,8 @@
 #ifndef __SWITCH__
 #define __SWITCH__
 
+#include <cstdint>
+
 class Switch {
 private:
     uint8_t pin;

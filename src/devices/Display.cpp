@@ -1,6 +1,6 @@
 #include "devices/Display.hpp"
 
-Display::Display(const int addr, const int cols, const int rows) {
+Display::Display(const int addr, const uint8_t cols, const uint8_t rows) {
     this->lcd = new LiquidCrystal_I2C(addr, cols, rows);
 }
 
@@ -9,7 +9,7 @@ void Display::init() {
     this->clear();
 }
 
-void Display::setText(const int row, const int col, const String text) {
+void Display::setText(const uint8_t row, const uint8_t col, const String text) {
     this->lcd->backlight();
     this->lcd->setCursor(row, col);
     this->lcd->print(text);

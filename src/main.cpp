@@ -4,8 +4,8 @@
 #include "model/Visual.hpp"
 #include "tasks/DayTask.hpp"
 
-#define PHOTORES_PIN 10
-#define LUMINOSITY 2000
+// #define PHOTORES_PIN 10
+// #define LUMINOSITY 2000
 
 Dashboard dashboard;
 Visual visual;

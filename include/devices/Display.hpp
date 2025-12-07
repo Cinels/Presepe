@@ -16,7 +16,7 @@ public:
     /// @param addr 
     /// @param cols 
     /// @param rows 
-    Display(const int addr, const int cols, const int rows);
+    Display(const int addr, const uint8_t cols, const uint8_t rows);
 
     /// @brief Initialize the display, set the backlight off and eventually clears it.
     void init();
@@ -25,7 +25,7 @@ public:
     /// @param row starting row to print.
     /// @param col starting column to print.
     /// @param text the message to print.
-    void setText(const int row, const int col, const String text);
+    void setText(const uint8_t row, const uint8_t col, const String text);
     
     /// @brief Clears the display content and sets the backlight off.
     void clear();

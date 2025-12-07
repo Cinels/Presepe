@@ -4,7 +4,7 @@
 
 Button::Button() { }
 
-Button::Button(const int pin, void(*func)()) {
+Button::Button(const uint8_t pin, void(*func)()) {
     this->pin = pin;
     pinMode(this->pin, INPUT);
     attachInterrupt(digitalPinToInterrupt(this->pin), func, RISING);

@@ -3,9 +3,9 @@
 
 class Photoresistor {
 private:
-    int pin;
+    uint8_t pin;
 public:
-    Photoresistor(const int pin);
+    Photoresistor(const uint8_t pin);
     int getValue();
 };
 

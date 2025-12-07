@@ -23,9 +23,9 @@ private:
     void startDayPeriod(const DayPeriod period);
     void checkSkip();
     uint32_t readNotification(uint32_t clearOnExit, int timeout);
+    void tick();
 public:
     DayTask(Visual* visual, Dashboard* dashboard);
-    void tick();
 };
 
 #endif

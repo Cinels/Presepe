@@ -1,7 +1,7 @@
 #include "devices/Photoresistor.hpp"
 #include <Arduino.h>
 
-Photoresistor::Photoresistor(const int pin) {
+Photoresistor::Photoresistor(const uint8_t pin) {
     this->pin = pin;
     pinMode(this->pin, INPUT);
 }

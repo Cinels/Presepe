@@ -3,9 +3,9 @@
 
 Task::Task() { }
 
-void Task::start(const char* name, int period) {
+void Task::start(const char* name, const int period, const uint16_t stackSize, UBaseType_t priority) {
     this->period = period;
-    xTaskCreate(entry, name, 2048, this, 1, &this->taskHandler);
+    xTaskCreate(entry, name, stackSize, this, priority, &this->taskHandler);
     Serial.printf("Task %s created with period: %i\n", name, period);
 }
 
@@ -20,12 +20,13 @@ TaskHandle_t Task::getTaskHandle() {
 void Task::entry(void *pvParameters) {
     Task* instance = static_cast<Task*>(pvParameters);
     instance->loop();
-    vTaskDelete(NULL);
 }
 
 void Task::loop() {
+    TickType_t xLastWakeTime = xTaskGetTickCount();     
     for (;;) {
-        this->tick();
-        vTaskDelay(this->period);
+        this->tick(); 
+        vTaskDelayUntil( &xLastWakeTime, this->period / portTICK_PERIOD_MS );
     }
+    vTaskDelete(NULL);
 }

@@ -3,10 +3,11 @@
 
 class Switch {
 private:
-    int pin;
+    uint8_t pin;
+protected:
     bool on;
 public:
-    Switch(const int pin);
+    Switch(const uint8_t pin);
     virtual void switchOn();
     virtual void switchOff();
     virtual bool isOn();

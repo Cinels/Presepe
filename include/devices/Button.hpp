@@ -4,13 +4,12 @@
 /// @brief Class to use buttons by interrupts.
 class Button {
 private:
-    int pin;
+    uint8_t pin;
 public:
     /// @brief Button constructor, it creates a button and sets the pin in INPUT mode.
     /// @param pin the input pin for the button.
     Button();
-    Button(const int pin, void(*func)());
-    static void foo();
+    Button(const uint8_t pin, void(*func)());
 };
 
 #endif

@@ -1,7 +1,7 @@
 #include "devices/Switch.hpp"
 #include "Arduino.h"
 
-Switch::Switch(const int pin) {
+Switch::Switch(const uint8_t pin) {
     this->pin = pin;
     pinMode(this->pin, OUTPUT);
     this->switchOff();

@@ -26,7 +26,6 @@ void Task::loop() {
     TickType_t xLastWakeTime = xTaskGetTickCount();     
     for (;;) {
         this->tick(); 
-        // vTaskDelayUntil( &xLastWakeTime, this->period / portTICK_PERIOD_MS );
         vTaskDelay(this->period);
     }
     vTaskDelete(NULL);

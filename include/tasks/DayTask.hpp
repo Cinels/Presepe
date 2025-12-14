@@ -2,8 +2,8 @@
 #define __DAY_TASK__
 
 #include "Task.hpp"
-#include "model/Visual.hpp"
-#include "model/Dashboard.hpp"
+#include "controller/Visual.hpp"
+#include "controller/Dashboard.hpp"
 
 typedef enum Mode {LOOP, FAST_LOOP, AUTOMATIC, MANUAL} Mode;
 typedef enum DayPeriod {MORNING, DAY, EVENING, NIGHT, LATE_NIGHT, OFF} DayPeriod;

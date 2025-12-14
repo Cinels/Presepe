@@ -1,4 +1,4 @@
-#include "model/Dashboard.hpp"
+#include "controller/Dashboard.hpp"
 #include "constants.hpp"
 #include <Arduino.h>
 

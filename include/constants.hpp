@@ -2,10 +2,18 @@
 #define __CONSTANTS__
 
 //relay
-#define CRAFTS_RELAY_PIN 2
-#define HOUSE_AND_LANTERNS_RELAY_PIN 3
-#define CANDLES_AND_LAMPS_RELAY_PIN 4
-#define PATH_AND_STARS_RELAY_PIN 5
+#define CRAFTS_PIN 15
+#define HOUSE_BIG_LIGHTS_PIN 16
+#define STARS_PIN 17
+
+//transistor
+#define HOUSE_MEDIUM_LIGHTS_PIN 9
+#define HOUSE_SMALL_LIGHTS_PIN 10
+#define BLACK_LANTERNS_PIN 11
+#define BROWN_LANTERNS_1_PIN 12
+#define BROWN_LANTERNS_2_PIN 13
+#define CANDLES_AND_LAMPS_PIN 14
+#define PATH_PIN 8
 
 //photoresistor
 #define PHOTO_RESISTOR_PIN 6
@@ -21,8 +29,8 @@
 #define SKIP_TIME_PERIOD 300
 
 //buttons
-#define MODE_BUTTON_PIN 7
-#define PERIOD_BUTTON_PIN 8
+#define MODE_BUTTON_PIN 4
+#define PERIOD_BUTTON_PIN 5
 
 //display
 #define LCD_I2C_ADDRESS 0x27

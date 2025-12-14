@@ -58,10 +58,10 @@ void DayTask::manualMode() {
     if (notify & PERIOD_NIGHT_NOTIFY) this->startDayPeriod(NIGHT);
     if (notify & PERIOD_LATE_NIGHT_NOTIFY) this->startDayPeriod(LATE_NIGHT);
     if (notify & PERIOD_OFF_NOTIFY) this->startDayPeriod(OFF);
-    if (notify & TOGGLE_CRAFTS_NOTIFY) this->visual->toggleCrafts();
-    if (notify & TOGGLE_HOUSES_AND_LANTERNS_NOTIFY) this->visual->toggleHouseAndLanterns();
-    if (notify & TOGGLE_CANDLES_AND_LAMPS_NOTIFY) this->visual->toggleCandlesAndLamps();
-    if (notify & TOGGLE_PATH_AND_STARS_NOTIFY) this->visual->togglePathAndStars();
+    // if (notify & TOGGLE_CRAFTS_NOTIFY) this->visual->toggleCrafts();
+    // if (notify & TOGGLE_HOUSES_AND_LANTERNS_NOTIFY) this->visual->toggleHouseAndLanterns();
+    // if (notify & TOGGLE_CANDLES_AND_LAMPS_NOTIFY) this->visual->toggleCandlesAndLamps();
+    // if (notify & TOGGLE_PATH_AND_STARS_NOTIFY) this->visual->togglePathAndStars();
 }
 
 void DayTask::changeDayPeriod() {

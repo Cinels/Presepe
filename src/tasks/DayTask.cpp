@@ -6,7 +6,7 @@ DayTask::DayTask(Visual* visual, Dashboard* dashboard) : Task() {
     this->visual = visual;
     this->dashboard = dashboard;
     this->mode = LOOP;
-    startDayPeriod(MORNING);
+    startDayPeriod(OFF);
     Serial.printf("Mode: %i\n", this->mode);
     Serial.printf("Period: %i\n", this->dayPeriod);
 }

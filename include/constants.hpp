@@ -13,11 +13,11 @@
 #define BROWN_LANTERNS_1_PIN 12
 #define BROWN_LANTERNS_2_PIN 13
 #define CANDLES_AND_LAMPS_PIN 14
-#define PATH_PIN 8
+#define PATH_PIN 7
 
 //photoresistor
 #define PHOTO_RESISTOR_PIN 6
-#define BRIGHTNESS_THRESHOLD 2000
+#define BRIGHTNESS_THRESHOLD 1000
 
 //day duration
 #define MORNING_TIME 30

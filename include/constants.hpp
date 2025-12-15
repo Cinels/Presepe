@@ -2,9 +2,9 @@
 #define __CONSTANTS__
 
 //relay
-#define CRAFTS_PIN 15
+#define CRAFTS_PIN 17
 #define HOUSE_BIG_LIGHTS_PIN 16
-#define STARS_PIN 17
+#define STARS_PIN 15
 
 //transistor
 #define HOUSE_MEDIUM_LIGHTS_PIN 9

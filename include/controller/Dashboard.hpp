@@ -15,11 +15,13 @@ private:
     Button modeButton;
     Button periodButton;
     Display display;
-    //maybe 4 switches
 public:
     Dashboard();
     void init(TaskHandle_t dayTaskHandler);
     bool isDark();
+    void modeChanged(String mode);
+    void perdiodChanged(String period);
+    void showTimer(float ticks);
 };
 
 #endif

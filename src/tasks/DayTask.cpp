@@ -5,8 +5,9 @@
 DayTask::DayTask(Visual* visual, Dashboard* dashboard) : Task() {
     this->visual = visual;
     this->dashboard = dashboard;
-    this->mode = LOOP;
+    this->mode = MANUAL;
     startDayPeriod(OFF);
+    this->changeMode();
     Serial.printf("Mode: %i\n", this->mode);
     Serial.printf("Period: %i\n", this->dayPeriod);
 }
@@ -23,14 +24,16 @@ void DayTask::tick() {
 }
 
 void DayTask::changeMode() {
+    String modeString = "";
     switch (this->mode) {
-    case LOOP: this->mode = FAST_LOOP; break;
-    case FAST_LOOP: this->mode = AUTOMATIC; break;
-    case AUTOMATIC: this->mode = MANUAL; break;
-    case MANUAL: this->mode = LOOP; break;
-    default: this->mode = LOOP; break;
+    case LOOP: this->mode = FAST_LOOP; modeString = "FAST LOOP "; break;
+    case FAST_LOOP: this->mode = AUTOMATIC; modeString = "AUTO      "; break;
+    case AUTOMATIC: this->mode = MANUAL; modeString = "MANUALE   "; break;
+    case MANUAL: this->mode = LOOP; modeString = "LOOP      "; break;
+    default: this->mode = LOOP; modeString = "LOOP      "; break;
     }
-    Serial.printf("Mode: %i\n", this->mode);
+    this->dashboard->modeChanged(modeString);
+    Serial.printf("Mode: %i %s\n", this->mode, modeString);
 }
 
 void DayTask::loopMode() {
@@ -71,21 +74,33 @@ void DayTask::changeDayPeriod() {
     else if (this->dayPeriod == NIGHT && this->ts > NIGHT_TIME) this->startDayPeriod(this->mode == FAST_LOOP ? MORNING : LATE_NIGHT);
     else if (this->dayPeriod == LATE_NIGHT && this->ts > LATE_NIGHT_TIME) this->startDayPeriod(this->mode == MANUAL ? OFF : MORNING);
     else if (this->dayPeriod == OFF && this->ts > OFF_TIME) this->startDayPeriod(MORNING);
+    int time = 1;
+    switch (this->dayPeriod) {
+    case MORNING: time = MORNING_TIME; break;
+    case DAY: time = DAY_TIME; break;
+    case EVENING: time = EVENING_TIME; break;
+    case NIGHT: time = NIGHT_TIME; break;
+    case LATE_NIGHT: time = LATE_NIGHT_TIME; break;    
+    default: time = SKIP_TIME_PERIOD; break;
+    }
+    this->dashboard->showTimer(this->ts / time);
 }
 
 void DayTask::startDayPeriod(const DayPeriod period) {
     this->ts = 0;
     this->dayPeriod = period;
+    String periodString = "";
     switch (period) {
-    case MORNING: this->visual->startMorning(); break;
-    case DAY: this->visual->startDay(); break;
-    case EVENING: this->visual->startEvening(); break;
-    case NIGHT: this->visual->startNight(); break;
-    case LATE_NIGHT: this->visual->startLateNight(); break;
-    case OFF: this->visual->turnOff(); break;
-    default: this->visual->startMorning();
+    case MORNING: this->visual->startMorning(); periodString = "MATTINA    "; break;
+    case DAY: this->visual->startDay(); periodString = "GIORNO     "; break;
+    case EVENING: this->visual->startEvening(); periodString = "SERA       "; break;
+    case NIGHT: this->visual->startNight(); periodString = "NOTTE      "; break;
+    case LATE_NIGHT: this->visual->startLateNight(); periodString = "NOTTE FONDA"; break;
+    case OFF: this->visual->turnOff(); periodString = "SPENTO     "; break;
+    default: this->visual->startMorning(); periodString = "MATTINA    "; break;
     }
-    Serial.printf("Period: %i\n", this->dayPeriod);
+    this->dashboard->modeChanged(periodString);
+    Serial.printf("Period: %i %s\n", this->dayPeriod, periodString);
 }
 
 void DayTask::checkSkip() {

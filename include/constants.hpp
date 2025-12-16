@@ -36,6 +36,12 @@
 #define LCD_I2C_ADDRESS 0x27
 #define LCD_COLUMNS 20
 #define LCD_ROWS 4
+#define MODE_ROW 0
+#define MODE_COL 10
+#define PERIOD_ROW 1
+#define PERIOD_COL 9
+#define TIMER_ROW 2
+#define TIMER_COL 0
 
 //tasks
 #define DAY_TASK_PERIOD 100

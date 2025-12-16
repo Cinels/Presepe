@@ -9,7 +9,7 @@
 /// @brief Class to use I2C Display with dimensions 20 x 4.
 class Display {
 private:
-    LiquidCrystal_I2C* lcd;
+    LiquidCrystal_I2C lcd;
 public:
     /// @brief Display constructor, it creates an lcd I2C display.
     /// @note Display dimension is 20 x 4.

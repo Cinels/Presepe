@@ -14,7 +14,7 @@ void setup() {
   visual = Visual();
   dayTask = new DayTask(&visual, &dashboard);
   
-  dayTask->start("day task", DAY_TASK_PERIOD);
+  dayTask->start("day task", DAY_TASK_PERIOD, 4096);
   dashboard.init(dayTask->getTaskHandle());
 }
 

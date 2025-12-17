@@ -39,9 +39,9 @@
 #define LCD_COLUMNS 20
 #define LCD_ROWS 4
 #define MODE_ROW 0
-#define MODE_COL 10
+#define MODE_COL 0
 #define PERIOD_ROW 1
-#define PERIOD_COL 9
+#define PERIOD_COL 0
 #define TIMER_ROW 2
 #define TIMER_COL 0
 

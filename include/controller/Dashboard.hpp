@@ -15,6 +15,7 @@ private:
     Button modeButton;
     Button periodButton;
     Display display;
+    uint8_t lastTimer = 0;
 public:
     Dashboard();
     void init(TaskHandle_t dayTaskHandler);

@@ -35,8 +35,11 @@ void Dashboard::periodChanged(String period) {
 }
 
 void Dashboard::showTimer(float ticks) {
-    int timer = round(ticks * (float) 20);
-    String timerString = "";
-    for (uint8_t i = 0; i < LCD_COLUMNS; i++) timerString += i < timer ? char(255) : char(32);
-    this->display.setText(TIMER_ROW, TIMER_COL, String(timerString));
+    uint8_t timer = round(ticks * (float) 20);
+    if (timer != this->lastTimer) {
+        this->lastTimer = timer;
+        String timerString = "";
+        for (uint8_t i = 0; i < LCD_COLUMNS; i++) timerString += i < timer ? char(255) : char(32);
+        this->display.setText(TIMER_ROW, TIMER_COL, String(timerString));
+    }
 }

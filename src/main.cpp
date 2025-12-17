@@ -12,7 +12,7 @@ void setup() {
   Serial.begin(115200);
   Wire.begin(I2C_SDA_PIN, I2C_SCL_PIN);
   dayTask = new DayTask(&visual, &dashboard);
-  dayTask->start("day task", DAY_TASK_PERIOD);
+  dayTask->start("day task", DAY_TASK_PERIOD, 4096);
   dashboard.init(dayTask->getTaskHandle());
 }
 

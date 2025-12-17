@@ -5,9 +5,8 @@
 DayTask::DayTask(Visual* visual, Dashboard* dashboard) : Task() {
     this->visual = visual;
     this->dashboard = dashboard;
-    this->mode = MANUAL;
-    startDayPeriod(OFF);
-    this->changeMode();
+    this->mode = LOOP;
+    startDayPeriod(MORNING);
     Serial.printf("Mode: %i\n", this->mode);
     Serial.printf("Period: %i\n", this->dayPeriod);
 }
@@ -83,7 +82,7 @@ void DayTask::changeDayPeriod() {
     case LATE_NIGHT: time = LATE_NIGHT_TIME; break;    
     default: time = SKIP_TIME_PERIOD; break;
     }
-    this->dashboard->showTimer(this->ts / time);
+    this->dashboard->showTimer((float) this->ts / (float) time);
 }
 
 void DayTask::startDayPeriod(const DayPeriod period) {
@@ -99,7 +98,7 @@ void DayTask::startDayPeriod(const DayPeriod period) {
     case OFF: this->visual->turnOff(); periodString = "SPENTO     "; break;
     default: this->visual->startMorning(); periodString = "MATTINA    "; break;
     }
-    this->dashboard->modeChanged(periodString);
+    this->dashboard->periodChanged(periodString);
     Serial.printf("Period: %i %s\n", this->dayPeriod, periodString);
 }
 

@@ -20,7 +20,7 @@ public:
     void init(TaskHandle_t dayTaskHandler);
     bool isDark();
     void modeChanged(String mode);
-    void perdiodChanged(String period);
+    void periodChanged(String period);
     void showTimer(float ticks);
 };
 

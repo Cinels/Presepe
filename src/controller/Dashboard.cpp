@@ -30,15 +30,13 @@ void Dashboard::modeChanged(String mode) {
     this->display.setText(MODE_ROW, MODE_COL, mode);
 }
 
-void Dashboard::perdiodChanged(String period) {
+void Dashboard::periodChanged(String period) {
     this->display.setText(PERIOD_ROW, PERIOD_COL, period);
 }
 
 void Dashboard::showTimer(float ticks) {
     int timer = round(ticks * (float) 20);
     String timerString = "";
-    Serial.println(timer);
-    for (uint8_t i = 0; i < LCD_COLUMNS; i++) timerString += i < timer ? "▓" : "░";
-    Serial.println(timerString);
-    this->display.setText(TIMER_ROW, TIMER_COL, String(timer));
+    for (uint8_t i = 0; i < LCD_COLUMNS; i++) timerString += i < timer ? char(255) : char(32);
+    this->display.setText(TIMER_ROW, TIMER_COL, String(timerString));
 }

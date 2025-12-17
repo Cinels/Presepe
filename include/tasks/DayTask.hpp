@@ -6,7 +6,7 @@
 #include "controller/Dashboard.hpp"
 
 typedef enum Mode {LOOP, FAST_LOOP, AUTOMATIC, MANUAL} Mode;
-typedef enum DayPeriod {MORNING, DAY, EVENING, NIGHT, LATE_NIGHT, OFF} DayPeriod;
+typedef enum DayPeriod {OFF, MORNING, DAY, EVENING, NIGHT, LATE_NIGHT} DayPeriod;
 
 class DayTask : public Task {
 private:

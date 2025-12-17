@@ -33,6 +33,8 @@
 #define PERIOD_BUTTON_PIN 5
 
 //display
+#define I2C_SDA_PIN 1
+#define I2C_SCL_PIN 2
 #define LCD_I2C_ADDRESS 0x27
 #define LCD_COLUMNS 20
 #define LCD_ROWS 4

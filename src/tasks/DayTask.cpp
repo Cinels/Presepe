@@ -6,7 +6,8 @@ DayTask::DayTask(Visual* visual, Dashboard* dashboard) : Task() {
     this->visual = visual;
     this->dashboard = dashboard;
     this->mode = LOOP;
-    startDayPeriod(MORNING);
+    this->prevDark = false;
+    this->startDayPeriod(MORNING);
     Serial.printf("Mode: %i\n", this->mode);
     Serial.printf("Period: %i\n", this->dayPeriod);
 }
@@ -14,11 +15,11 @@ DayTask::DayTask(Visual* visual, Dashboard* dashboard) : Task() {
 void DayTask::tick() {
     this->checkSkip();
     switch (this->mode) {
-    case LOOP: loopMode(); break;
-    case FAST_LOOP: loopMode(); break;
-    case AUTOMATIC: automaticMode(); break;
-    case MANUAL: manualMode(); break;
-    default: loopMode(); break;
+    case LOOP: this->loopMode(); break;
+    case FAST_LOOP: this->loopMode(); break;
+    case AUTOMATIC: this->automaticMode(); break;
+    case MANUAL: this->manualMode(); break;
+    default: this->loopMode(); break;
     }
 }
 
@@ -41,9 +42,10 @@ void DayTask::loopMode() {
 }
 
 void DayTask::automaticMode() {
-    if (this->dashboard->isDark()) this->startDayPeriod(NIGHT);
-    else if (this->dayPeriod != MORNING && this->dayPeriod != DAY) this->startDayPeriod(MORNING);
-    else if (this->dayPeriod == MORNING && ++this->ts > MORNING_TIME) this->startDayPeriod(DAY);
+    if (this->dashboard->isDark() && this->prevDark) this->startDayPeriod(NIGHT);
+    else if (!this->prevDark && this->dayPeriod != MORNING && this->dayPeriod != DAY) this->startDayPeriod(MORNING);
+    else if (!this->prevDark && this->dayPeriod == MORNING && ++this->ts > MORNING_TIME) this->startDayPeriod(DAY);
+    this->prevDark = this->dashboard->isDark();
     this->showTimer();
 }
 

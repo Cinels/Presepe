@@ -17,16 +17,16 @@
 
 //photoresistor
 #define PHOTO_RESISTOR_PIN 6
-#define BRIGHTNESS_THRESHOLD 1000
+#define BRIGHTNESS_THRESHOLD 250
 
 //day duration
-#define MORNING_TIME 300
-#define DAY_TIME 1800
-#define EVENING_TIME 300
-#define NIGHT_TIME 900
-#define LATE_NIGHT_TIME 900
+#define MORNING_TIME 150
+#define DAY_TIME 900
+#define EVENING_TIME 150
+#define NIGHT_TIME 450
+#define LATE_NIGHT_TIME 450
 #define OFF_TIME 1
-#define SKIP_TIME_PERIOD 3000
+#define SKIP_TIME_PERIOD 1000
 
 //buttons
 #define MODE_BUTTON_PIN 4

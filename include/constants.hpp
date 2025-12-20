@@ -20,17 +20,18 @@
 #define BRIGHTNESS_THRESHOLD 1000
 
 //day duration
-#define MORNING_TIME 30
-#define DAY_TIME 180
-#define EVENING_TIME 30
-#define NIGHT_TIME 90
-#define LATE_NIGHT_TIME 90
+#define MORNING_TIME 300
+#define DAY_TIME 1800
+#define EVENING_TIME 300
+#define NIGHT_TIME 900
+#define LATE_NIGHT_TIME 900
 #define OFF_TIME 1
-#define SKIP_TIME_PERIOD 300
+#define SKIP_TIME_PERIOD 3000
 
 //buttons
 #define MODE_BUTTON_PIN 4
 #define PERIOD_BUTTON_PIN 5
+#define ENABLE_BUTTON_PIN 18
 
 //display
 #define I2C_SDA_PIN 1

@@ -16,6 +16,9 @@ private:
     Button periodButton;
     Display display;
     uint8_t lastTimer = 0;
+    bool dark;
+    bool prevDark[3] = {false, false, false};
+    uint8_t darkIndex;
 public:
     Dashboard();
     void init(TaskHandle_t dayTaskHandler);

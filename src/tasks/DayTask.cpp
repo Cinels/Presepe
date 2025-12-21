@@ -6,7 +6,6 @@ DayTask::DayTask(Visual* visual, Dashboard* dashboard) : Task() {
     this->visual = visual;
     this->dashboard = dashboard;
     this->mode = LOOP;
-    this->prevDark = false;
     this->startDayPeriod(MORNING);
     Serial.printf("Mode: %i\n", this->mode);
     Serial.printf("Period: %i\n", this->dayPeriod);
@@ -42,10 +41,9 @@ void DayTask::loopMode() {
 }
 
 void DayTask::automaticMode() {
-    if (this->dashboard->isDark() && this->prevDark) this->startDayPeriod(NIGHT);
-    else if (!this->prevDark && this->dayPeriod != MORNING && this->dayPeriod != DAY) this->startDayPeriod(MORNING);
-    else if (!this->prevDark && this->dayPeriod == MORNING && ++this->ts > MORNING_TIME) this->startDayPeriod(DAY);
-    this->prevDark = this->dashboard->isDark();
+    if (this->dashboard->isDark()) {if(this->dayPeriod != NIGHT) this->startDayPeriod(NIGHT);}
+    else if (this->dayPeriod != MORNING && this->dayPeriod != DAY) this->startDayPeriod(MORNING);
+    else if (this->dayPeriod == MORNING && (++this->ts)++ > MORNING_TIME) this->startDayPeriod(DAY);
     this->showTimer();
 }
 

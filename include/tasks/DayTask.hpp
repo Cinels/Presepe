@@ -15,7 +15,6 @@ private:
     Visual* visual;
     Dashboard* dashboard;
     long ts;
-    bool prevDark;
     void changeMode();
     void loopMode();
     void automaticMode();

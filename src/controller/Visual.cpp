@@ -4,19 +4,12 @@
 
 Visual::Visual() { }
 
-//     CandlesAndLamps candlesAndLamps;
-//     Crafts crafts;
-//     Houses houses;
-//     Lanterns lanterns;
-//     Paths paths;
-//     Stars stars;
-
 void Visual::startMorning() {
     this->candlesAndLamps.on();
-    this->crafts.off();
+    this->crafts.on();
     this->houses.on();
     this->lanterns.on();
-    this->paths.off();
+    this->paths.on();
     this->stars.off();
 }
 
@@ -25,7 +18,7 @@ void Visual::startDay() {
     this->crafts.on();
     this->houses.off();
     this->lanterns.off();
-    this->paths.off();
+    this->paths.on();
     this->stars.off();
 }
 
@@ -34,7 +27,7 @@ void Visual::startEvening() {
     this->crafts.off();
     this->houses.on();
     this->lanterns.on();
-    this->paths.off();
+    this->paths.on();
     this->stars.off();
 }
 

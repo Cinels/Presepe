@@ -4,7 +4,10 @@
 
 Dashboard::Dashboard()
     :   photores(PHOTO_RESISTOR_PIN),
-        display(LCD_I2C_ADDRESS, LCD_COLUMNS, LCD_ROWS) { }
+        display(LCD_I2C_ADDRESS, LCD_COLUMNS, LCD_ROWS) {
+            this->dark = false;
+            this->darkIndex = 0;
+        }
 
 void Dashboard::init(TaskHandle_t taskHandler) {
     dayTaskHandler = taskHandler;
@@ -27,8 +30,17 @@ void Dashboard::init(TaskHandle_t taskHandler) {
 }
 
 bool Dashboard::isDark() {
-    Serial.printf("Enviromental brightness: %d, is night: %d\n", photores.getValue(), photores.getValue() < BRIGHTNESS_THRESHOLD);
-    return photores.getValue() < BRIGHTNESS_THRESHOLD;
+    int value = this->photores.getValue();
+    this->prevDark[this->darkIndex] = value < BRIGHTNESS_THRESHOLD;
+    this->darkIndex = (this->darkIndex + 1) % 3;
+    if (this->dark && !this->prevDark[0] && !this->prevDark[2] && !this->prevDark[2]) {
+        this->dark = false;
+        Serial.printf("Enviromental brightness: %d, is night: %d\n", value, dark);
+    } else if (!this->dark && this->prevDark[0] && this->prevDark[2] && this->prevDark[2]) {
+        this->dark = true;
+        Serial.printf("Enviromental brightness: %d, is night: %d\n", value, dark);
+    }
+    return this->dark;
 }
 
 void Dashboard::modeChanged(String mode) {

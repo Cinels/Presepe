@@ -17,7 +17,7 @@
 
 //photoresistor
 #define PHOTO_RESISTOR_PIN 6
-#define BRIGHTNESS_THRESHOLD 250
+#define BRIGHTNESS_THRESHOLD 300
 
 //day duration
 #define MORNING_TIME 150
